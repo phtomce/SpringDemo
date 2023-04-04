@@ -18,9 +18,9 @@ public class BootStrapdata implements CommandLineRunner {
 
         customerRepository.findAll().forEach(System.out::println);
         System.out.println("\n===================================");
-        System.out.println(customerRepository.findById(114) + "\n");
-        System.out.println(customerRepository.findById(141) + "\n");
-        System.out.println(customerRepository.findById(333) + "\n");
+        System.out.println(customerRepository.findById(114).get() + "\n");
+        System.out.println(customerRepository.findById(141).get() + "\n");
+        System.out.println(customerRepository.findById(333).get() + "\n");
         System.out.println("\n===================================");
         System.out.println(customerRepository.count());
     }
