@@ -1,18 +1,15 @@
 package lt.tomas.SpringDemo.bootstrap;
 
 import lt.tomas.SpringDemo.repository.customers.CustomerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
 public class BootStrapdata implements CommandLineRunner {
 
+    @Autowired
     private CustomerRepository customerRepository;
-
-    public BootStrapdata(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-    }
-
     @Override
     public void run(String... args) throws Exception {
 
