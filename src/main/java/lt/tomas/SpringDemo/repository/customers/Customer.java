@@ -42,23 +42,4 @@ public class Customer {
     private Integer salesRepEmployeeNumber;
     @Column(name = "creditlimit")
     private Double creditLimit;
-
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "customerNumber=" + customerNumber +
-                ", customerName='" + customerName + '\'' +
-                ", contactLastName='" + contactLastName + '\'' +
-                ", contactFirstName='" + contactFirstName + '\'' +
-                ", phone='" + phone + '\'' +
-                ", addressLine1='" + addressLine1 + '\'' +
-                ", addressLine2='" + addressLine2 + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", postalCode='" + postalCode + '\'' +
-                ", country='" + country + '\'' +
-                ", salesRepEmployeeNumber=" + salesRepEmployeeNumber +
-                ", creditLimit=" + creditLimit +
-                '}';
-    }
 }

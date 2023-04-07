@@ -4,9 +4,7 @@ import lt.tomas.SpringDemo.repository.customers.Customer;
 import lt.tomas.SpringDemo.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,4 +26,33 @@ public class CustomerController {
     public @ResponseBody List<Customer> getAllCustomers() {
         return customerService.getallcustomers();
     }
+
+    //http://localhost:8080/customer/141
+@GetMapping(path = "/{id}")
+    public @ResponseBody Customer getCustomerById(@PathVariable int id){
+        return customerService.getCustomerById(id);
+}
+//http://localhost:8080/customer/141
+    @GetMapping(path = "/customised/{id}")
+    public @ResponseBody Customer getCustomerByIdCustomised(@PathVariable int id){
+        return customerService.getCustomerByIdCustomised(id);
+    }
+    //http://localhost:8080/customer/name/double
+    @GetMapping (path = "/name/{name}")
+    public @ResponseBody List<Customer> getCustomersByNameLike(@PathVariable String name){
+        return customerService.getCustomersByNameLike("%" + name + "%");
+    }
+
+    //http://localhost:8080/customer/name/query/double
+    @GetMapping(path ="/name/query/{name}")
+    public @ResponseBody List<Customer>getCustomersQueryByNameLike(@PathVariable String name){
+        return customerService.getCustomersQueryByNameLike(name);
+    }
+
+    //http://localhost:8080/customer/customised/param?id=141
+    @GetMapping(path = "/customised/param")
+    public @ResponseBody Customer getCustomerByIdParam(@RequestParam int id){
+        return customerService.getCustomerByIdCustomised(id);
+    }
+
 }
